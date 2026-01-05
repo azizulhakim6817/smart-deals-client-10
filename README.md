@@ -1,12 +1,22 @@
-## client side vercel
+## client side vercel deploy-----------------------------
 
 --- https://smart-deals-client-10.vercel.app/
 
-## 1. server side vercel
+## 1. server side vercel deploy ----------------------------------
 
 --- https://smart-deals-server-10.vercel.app/latest-products
 
-## At first VS-code terminal --> npm run dev 
+## 2. client side Netlify deploy ---------------------------------------------
+
+---https://coruscating-clafoutis-dcc5c9.netlify.app/
+
+### 1. netlify deploy
+
+1. public folder
+   -- create file => \_redirects
+   /\* /index.html 200
+
+## At first VS-code terminal --> npm run dev
 
 ## 1. vercel.json file add --------
 
@@ -35,9 +45,3 @@
 
 1. Authentication---sitting-Authorized domains--add domain
    --smart-deals-client-10.vercel.app ---- add
-
-
-# 1. netlify deploy 
-1. public folder 
-  -- create file =>  _redirects
-/*    /index.html   200
