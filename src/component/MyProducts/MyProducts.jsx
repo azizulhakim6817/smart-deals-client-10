@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 const MyProducts = () => {
   const { user } = useAuth();
   const [products, setProducts] = useState([]);
+  console.log(products);
   const [loading, setLoading] = useState(true);
   const [loadingProduct, setLoadingProduct] = useState(false);
 
@@ -87,7 +88,7 @@ const MyProducts = () => {
     <div>
       <div className="mt-4 mb-8 mx-4 text-center">
         <h1 className="my-4 text-2xl font-bold text-gray-700 dark:text-white ">
-          MY 3D PRODUCTS
+          MY 3D PRODUCTS : {products.length}
         </h1>
         {/* search input--------------------------------- */}
         <div>
@@ -121,7 +122,7 @@ const MyProducts = () => {
         </div>
       </div>
       <div className="my-12 gap-4 mx-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {products?.data?.map((product) => (
+        {products?.map((product) => (
           <div
             key={product._id}
             className="card bg-base-100 shadow-sm animate-in fade-in zoom-in duration-300 transition-transform hover:scale-105 hover:shadow-lg"

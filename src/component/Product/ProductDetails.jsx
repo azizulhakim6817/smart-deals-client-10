@@ -19,6 +19,7 @@ const ProductDetails = () => {
 
   //product id by bid modal open----------------------------------
   const bideModalRef = useRef(null);
+  
   const handleModalOpen = (e) => {
     e.preventDefault();
     bideModalRef.current.showModal();
