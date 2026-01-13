@@ -23,7 +23,6 @@ const AuthProvider = ({ children }) => {
   //!sign-in/login---------
   const signInUser = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
-  
   };
 
   //!signOut -----------
@@ -42,7 +41,7 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
 
       //! jwt create/generate token frontent to backend request and create token
-      if (currentUser) {
+      /*  if (currentUser) {
         const loggedUserEmail = { email: currentUser.email };
 
         fetch("https://smart-deals-server-10.vercel.app//getToken", {
@@ -59,7 +58,7 @@ const AuthProvider = ({ children }) => {
           });
       } else {
         localStorage.removeItem("token");
-      }
+      } */
       setLoading(false);
     });
 
