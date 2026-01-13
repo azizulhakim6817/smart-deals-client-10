@@ -8,11 +8,14 @@ const MyDownloads = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/get-downloads?email=${user.email}`, {
-      headers: {
-        authorization: `Bearer ${user.accessToken}`,
-      },
-    })
+    fetch(
+      `https://smart-deals-server-10.vercel.app//get-downloads?email=${user.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -59,7 +62,6 @@ const MyDownloads = () => {
                 >
                   View Details
                 </Link>
-               
 
                 {/*  <button
                   onClick={dandleDownload}

@@ -59,7 +59,9 @@ const route = createBrowserRouter([
       {
         path: "/downloads-details/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/downloads-details/${params.id}`),
+          fetch(
+            `https://smart-deals-server-10.vercel.app//downloads-details/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <DownloadsDetails />
