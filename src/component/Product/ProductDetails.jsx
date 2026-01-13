@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
+import confetti from "canvas-confetti";
 
 const ProductDetails = () => {
   const { user } = use(AuthContext);
@@ -21,6 +22,7 @@ const ProductDetails = () => {
   const handleModalOpen = (e) => {
     e.preventDefault();
     bideModalRef.current.showModal();
+    handleBidConvas();
 
     const name = e.target.name.value;
     const photo = e.target.photo.value;
@@ -141,6 +143,34 @@ const ProductDetails = () => {
     });
   };
 
+  /* canvas buttons --------------------------- */
+  const handleBidConvas = () => {
+    const end = Date.now() + 15 * 1000;
+    const colors = ["#bb0000", "#ffffff"];
+
+    (function frame() {
+      confetti({
+        particleCount: 2,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+        colors,
+      });
+
+      confetti({
+        particleCount: 2,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+        colors,
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    })(); // ✅ MUST call it
+  };
+
   return (
     <div>
       <div className="card flex flex-col lg:flex-row my-8 mx-4 md:mx-26 card-side bg-base-300 shadow-sm">
@@ -149,7 +179,7 @@ const ProductDetails = () => {
           <figure>
             <img
               className=" lg:h-75 rounded-md"
-              src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+              src={products.image}
               alt="Movie"
             />
           </figure>
@@ -302,7 +332,10 @@ const ProductDetails = () => {
                       placeholder="Amount"
                     />
 
-                    <button className="btn btn-neutral mt-4">
+                    <button
+                      onClick={handleBidConvas}
+                      className="btn btn-neutral mt-4"
+                    >
                       Please Your Bid
                     </button>
                   </fieldset>
@@ -384,7 +417,10 @@ const ProductDetails = () => {
                     </td>
                     <th>
                       <div
-                        onClick={() => handleRemoveBid(bidsProduct._id)}
+                        onClick={() => {
+                          handleRemoveBid(bidsProduct._id);
+                          handleBidConvas();
+                        }}
                         className="badge text-red-600 badge-outline cursor-pointer"
                       >
                         Remove Bid

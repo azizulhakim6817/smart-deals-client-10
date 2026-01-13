@@ -46,7 +46,7 @@ const Home = () => {
       {/* latest-products */}
       <div>
         <div className="mt-6 md:mt-12 px-4">
-          <h1 className="text-4xl font-bold">
+          <h1 className="text-4xl font-bold  text-gray-700 dark:text-white">
             Recent <span className="text-secondary">Products</span>
           </h1>
         </div>

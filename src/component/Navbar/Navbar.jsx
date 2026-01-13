@@ -1,4 +1,4 @@
-import { use } from "react";
+import { use, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../constext/AuthContext";
 
@@ -14,6 +14,19 @@ const Navbar = () => {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  //! theme toggle switch button ---------
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "winter");
+  useEffect(() => {
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  //* handle Theme button------------
+  const handleTheme = (checked) => {
+    setTheme(checked ? "night" : "winter");
   };
 
   const links = (
@@ -64,22 +77,22 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-              to="/my-products"
-              className={({ isActive }) =>
-                isActive ? `text-blue-500 font-bold` : "font-normal"
-              }
-            >
-              My-Products
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
               to="/my-bids"
               className={({ isActive }) =>
                 isActive ? `text-blue-500 font-bold` : "font-normal"
               }
             >
               My-Bids
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/my-downloadsProducts"
+              className={({ isActive }) =>
+                isActive ? `text-blue-500 font-bold` : "font-normal"
+              }
+            >
+              Downloads
             </NavLink>
           </li>
         </>
@@ -122,6 +135,16 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
+        {/* Toggle (switch) -----------*/}
+        <div className="mr-2">
+          <input
+            type="checkbox"
+            onChange={(e) => handleTheme(e.target.checked)}
+            defaultChecked
+            className="toggle"
+          />
+        </div>
+        {/* user active-------------------- */}
         {user ? (
           <Link
             to="/login"

@@ -2,19 +2,18 @@ import { Link } from "react-router";
 
 const Product = ({ product }) => {
   //console.log("product", product);
+
   return (
-    <div className="card bg-base-100  shadow-sm">
+    <div className="card bg-base-100 shadow-sm animate-in fade-in zoom-in duration-300 transition-transform hover:scale-105 hover:shadow-lg">
       <figure className="px-4 pt-4">
         <img
-          src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+          src={product?.image}
           alt="Shoes"
-          className="rounded-xl"
+          className="rounded-xl h-40 w-110"
         />
       </figure>
       <div className="card-body ">
-        <h2 className="card-title font-bold text-[#001931]">
-          {product?.title}
-        </h2>
+        <h2 className="card-title font-bold ">{product?.title}</h2>
         <p className="text-start text-secondary font-bold">
           ${product.price_max}-{product.price_min}
         </p>

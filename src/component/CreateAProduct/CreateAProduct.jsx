@@ -1,8 +1,10 @@
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { useNavigate } from "react-router";
 
 const CreateAProduct = () => {
+  const navigate = useNavigate();
   //! AuthContext is called to hooks folder import */
   const { user } = useAuth();
   //console.log("suer", user);
@@ -40,6 +42,8 @@ const CreateAProduct = () => {
           title: "Your product has been created 👍",
           showConfirmButton: false,
           timer: 1500,
+        }).then(() => {
+          navigate("/allProducts"); // ✅ navigate after alert closes
         });
       }
     });

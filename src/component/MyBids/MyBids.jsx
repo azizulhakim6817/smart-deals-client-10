@@ -77,14 +77,14 @@ const MyBids = () => {
     <div>
       {/* bid for this products  */}
       <div className="my-8 md:my-12 mx-4 md:mx-26">
-        <h1 className="text-2xl font-bold text-[#001931]">
+        <h1 className="text-2xl font-bold text-[#001931] dark:text-white">
           Bids For This Products:{" "}
           <span className="text-primary">({bids?.length})</span>
         </h1>
 
         {/* table */}
         <div>
-          <div className="overflow-x-auto bg-white rounded-md px-2 py-2 my-2 mt-4">
+          <div className="overflow-x-auto text-[#001931]  dark:text-white rounded-md px-2 py-2 my-2 mt-4">
             <table className="table">
               {/* head */}
               <thead>
@@ -99,11 +99,11 @@ const MyBids = () => {
               </thead>
               <tbody>
                 {/* row 1 */}
-                {bids.map((bidsProduct, index) => (
+                {bids?.map((bidsProduct, index) => (
                   <tr>
                     <td>{index + 1}</td>
                     <td>
-                      <div className="flex items-center gap-3">
+                      <div className="flex  items-center gap-3">
                         <div className="avatar">
                           <div className="mask mask-squircle h-12 w-12">
                             <img
@@ -139,9 +139,9 @@ const MyBids = () => {
                     <th>
                       <div
                         onClick={() => handleRemoveBid(bidsProduct?._id)}
-                        className="badge text-red-600 badge-outline cursor-pointer"
+                        className="badge text-[12px] text-red-600 badge-outline cursor-pointer"
                       >
-                        Remove Bid
+                        Remove
                       </div>
                     </th>
                   </tr>

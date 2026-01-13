@@ -13,11 +13,16 @@ import MyBids from "./component/MyBids/MyBids.jsx";
 import PrivateRoute from "./Routes/PrivateRoute.jsx";
 import ProductDetails from "./component/Product/ProductDetails.jsx";
 import CreateAProduct from "./component/CreateAProduct/CreateAProduct.jsx";
+import { ToastContainer } from "react-toastify";
+import LoadingPage from "./component/LoadingPage/LoadingPage.jsx";
+import MyDownloads from "./component/MyDownloads/MyDownloads.jsx";
+import DownloadsDetails from "./component/MyDownloads/DownloadsDetails.jsx";
 
 const route = createBrowserRouter([
   {
     path: "/",
     Component: RootLayout,
+    hydrateFallbackElement: <LoadingPage />,
     children: [
       {
         index: true,
@@ -40,6 +45,24 @@ const route = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyProducts />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-downloadsProducts",
+        element: (
+          <PrivateRoute>
+            <MyDownloads />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/downloads-details/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/downloads-details/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <DownloadsDetails />
           </PrivateRoute>
         ),
       },
@@ -80,5 +103,6 @@ createRoot(document.getElementById("root")).render(
     <AuthProvider>
       <RouterProvider router={route}></RouterProvider>
     </AuthProvider>
+    <ToastContainer position="top-center" />
   </StrictMode>
 );
