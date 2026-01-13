@@ -9,7 +9,7 @@ const MyDownloads = () => {
 
   useEffect(() => {
     fetch(
-      `https://smart-deals-server-10.vercel.app//get-downloads?email=${user.email}`,
+      `https://smart-deals-server-10.vercel.app/get-downloads?email=${user.email}`,
       {
         headers: {
           authorization: `Bearer ${user.accessToken}`,

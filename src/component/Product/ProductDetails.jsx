@@ -42,7 +42,7 @@ const ProductDetails = () => {
     };
     // console.log("bids", newBid);
 
-    fetch(`https://smart-deals-server-10.vercel.app/bids`, {
+    fetch(`https://smart-deals-server-10.vercel.app//bids`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -87,7 +87,7 @@ const ProductDetails = () => {
   useEffect(() => {
     axios
       .get(
-        `https://smart-deals-server-10.vercel.app/product-by-id/${products._id}`,
+        `https://smart-deals-server-10.vercel.app//product-by-id/${products._id}`,
         {
           headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
         }
@@ -101,7 +101,7 @@ const ProductDetails = () => {
   /* table data product id by all bids-------- */
   //!fetch method uses ---------------------------------
   // useEffect(() => {
-  //   fetch(`https://smart-deals-server-10.vercel.app/product-by-id/${products._id}`, {
+  //   fetch(`https://smart-deals-server-10.vercel.app//product-by-id/${products._id}`, {
   //     headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
   //   })
   //     .then((res) => res.json())
@@ -123,7 +123,7 @@ const ProductDetails = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://smart-deals-server-10.vercel.app/bids-delete/${_id}`, {
+        fetch(`https://smart-deals-server-10.vercel.app//bids-delete/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

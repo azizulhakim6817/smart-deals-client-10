@@ -49,7 +49,7 @@ const CreateAProduct = () => {
     });
 
     //! axios try now----------------------- */
-    // axios.post("https://smart-deals-server-10.vercel.app/products", newProduct).then((data) => {
+    // axios.post("https://smart-deals-server-10.vercel.app//products", newProduct).then((data) => {
     //   console.log(data.data);
     //   if (data.data.insertedId) {
     //     Swal.fire({

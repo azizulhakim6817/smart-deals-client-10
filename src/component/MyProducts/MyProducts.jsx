@@ -11,7 +11,7 @@ const MyProducts = () => {
 
   useEffect(() => {
     fetch(
-      `https://smart-deals-server-10.vercel.app//my-products?email=${user.email}`,
+      `https://smart-deals-server-10.vercel.app/my-products?email=${user.email}`,
       {
         headers: { authorization: `Bearer ${user.accessToken}` },
       }
@@ -28,7 +28,7 @@ const MyProducts = () => {
   }, [user]);
 
   const handleDownload = (product) => {
-    fetch("https://smart-deals-server-10.vercel.app//downloads", {
+    fetch("https://smart-deals-server-10.vercel.app/downloads", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -56,7 +56,7 @@ const MyProducts = () => {
     setLoadingProduct(true);
     //console.log("search", search_text);
     fetch(
-      `https://smart-deals-server-10.vercel.app//search?search=${search_text}`
+      `https://smart-deals-server-10.vercel.app/search?search=${search_text}`
     )
       .then((res) => res.json())
       .then((data) => {

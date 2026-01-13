@@ -45,7 +45,7 @@ const Login = () => {
           photoURL: result.user.photoURL,
         };
 
-        fetch("https://smart-deals-server-10.vercel.app/users", {
+        fetch("https://smart-deals-server-10.vercel.app//users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

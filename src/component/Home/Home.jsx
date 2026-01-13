@@ -4,7 +4,7 @@ import LatestProducts from "../../LatestProducts/LatestProducts";
 import { Link } from "react-router";
 
 const latestProductPromise = fetch(
-  "https://smart-deals-server-10.vercel.app/latest-products"
+  "https://smart-deals-server-10.vercel.app//latest-products"
 ).then((res) => res.json());
 
 const Home = () => {

@@ -23,7 +23,7 @@ const AllProducts = () => {
   //! paginatoin------------------------------ */
   useEffect(() => {
     fetch(
-      `https://smart-deals-server-10.vercel.app//latest-products?limit=${limit}&skip=${
+      `https://smart-deals-server-10.vercel.app/latest-products?limit=${limit}&skip=${
         currentPage * limit
       }&sort=${sort}&price=${price}&search=${seachText}`
     )
