@@ -88,7 +88,7 @@ const route = createBrowserRouter([
         path: "/product-details/:id",
         loader: ({ params }) =>
           fetch(
-            `https://smart-deals-server-10.vercel.app//single-product/${params.id}`
+            `https://smart-deals-server-10.vercel.app/single-product/${params.id}`
           ),
         element: (
           <PrivateRoute>
