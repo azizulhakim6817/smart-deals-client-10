@@ -15,11 +15,11 @@ const Product = ({ product }) => {
       <div className="card-body ">
         <h2 className="card-title font-bold ">{product?.title}</h2>
         <p className="text-start text-secondary font-bold">
-          ${product.price_max}-{product.price_min}
+          ${product?.price_max}-{product?.price_min}
         </p>
         <div className="card-actions">
           <Link
-            to={`/product-details/${product._id}`}
+            to={`/product-details/${product?._id}`}
             className="w-full btn btn-outline btn-primary"
           >
             View Details

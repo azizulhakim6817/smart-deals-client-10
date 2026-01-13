@@ -128,14 +128,14 @@ const ProductDetails = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            if (data.deletedCount) {
+            if (data?.deletedCount) {
               Swal.fire({
                 title: "Deleted!",
                 text: "Your bid has been deleted.",
                 icon: "success",
               });
               // ✅ remove bid from UI state
-              const remainingBids = bids.filter((bid) => bid._id !== _id);
+              const remainingBids = bids?.filter((bid) => bid?._id !== _id);
               setBids(remainingBids);
             }
           });
@@ -179,7 +179,7 @@ const ProductDetails = () => {
           <figure>
             <img
               className=" lg:h-75 rounded-md"
-              src={products.image}
+              src={products?.image}
               alt="Movie"
             />
           </figure>
@@ -224,7 +224,7 @@ const ProductDetails = () => {
           {/* Price starts from  */}
           <div className="bg-white rounded-md px-2 py-2 my-2">
             <p className="font-bold text-[#4CAF50] text-[14px]">
-              ${products.price_min}-{products.price_max}
+              ${products?.price_min}-{products?.price_max}
             </p>
             <p className="text-[#001931] text-[12px]">Price starts from </p>
           </div>
@@ -232,10 +232,10 @@ const ProductDetails = () => {
           <div className="bg-white rounded-md px-2 py-2 my-2">
             <p className="font-bold text-[14px]">Product Details</p>
             <p className="my-1 text-[#001931] text-[12px]">
-              Product ID : {products._id}
+              Product ID : {products?._id}
             </p>
             <p className="text-[#001931] text-[12px]">
-              Posted : {new Date(products.created_at).toLocaleDateString()}
+              Posted : {new Date(products?.created_at).toLocaleDateString()}
             </p>
           </div>
           {/* Seller Information  */}
@@ -405,20 +405,20 @@ const ProductDetails = () => {
                     <td>{bidsProduct.buyer_email}</td>
                     <td>${bidsProduct.bid_price}</td>
                     <td>
-                      {bidsProduct.status === "pending" ? (
+                      {bidsProduct?.status === "pending" ? (
                         <div className="badge badge-warning">
-                          {bidsProduct.status}
+                          {bidsProduct?.status}
                         </div>
                       ) : (
                         <div className="badge badge-success">
-                          {bidsProduct.status}
+                          {bidsProduct?.status}
                         </div>
                       )}
                     </td>
                     <th>
                       <div
                         onClick={() => {
-                          handleRemoveBid(bidsProduct._id);
+                          handleRemoveBid(bidsProduct?._id);
                           handleBidConvas();
                         }}
                         className="badge text-red-600 badge-outline cursor-pointer"
