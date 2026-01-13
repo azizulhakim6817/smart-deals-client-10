@@ -4,7 +4,7 @@
 
 ## 1. server side vercel deploy ----------------------------------
 
---- https://smart-deals-server-10.vercel.app//latest-products
+--- https://smart-deals-server-10.vercel.app/latest-products
 
 ## 2. client side Netlify deploy ---------------------------------------------
 
