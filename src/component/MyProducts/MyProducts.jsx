@@ -150,7 +150,7 @@ const MyProducts = () => {
                 </Link>
                 <button
                   onClick={() => handleDownload(product)}
-                  className="w-full btn text-white btn-warning"
+                  className="w-full btn btn-secondary"
                 >
                   Download
                 </button>
