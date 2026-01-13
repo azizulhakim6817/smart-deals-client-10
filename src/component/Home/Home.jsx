@@ -51,7 +51,7 @@ const Home = () => {
           </h1>
         </div>
         <Suspense fallback={<p>Loading...</p>}>
-          <LatestProducts latestProductPromise={latestProductPromise} />
+          <LatestProducts latestProduct={latestProductPromise} />
         </Suspense>
         <div className="text-center my-8">
           <Link
