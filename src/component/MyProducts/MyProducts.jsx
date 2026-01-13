@@ -18,7 +18,7 @@ const MyProducts = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        setProducts(data);
+        setProducts(data.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -61,7 +61,7 @@ const MyProducts = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setProducts(data);
+        setProducts(data.data);
         setLoadingProduct(false);
       });
   };
