@@ -128,7 +128,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <Link className="flex gap-2 text-secondary text-3xl">
+        <Link to="/" className="flex gap-2 text-secondary text-3xl">
           <Logo />
           <span className=" font-bold hidden md:block ">FOODS</span>
         </Link>
