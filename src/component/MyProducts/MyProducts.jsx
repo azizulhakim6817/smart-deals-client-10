@@ -18,7 +18,7 @@ const MyProducts = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        setProducts(data.data);
+        setProducts(data);
         setLoading(false);
       })
       .catch((err) => {
@@ -121,9 +121,9 @@ const MyProducts = () => {
         </div>
       </div>
       <div className="my-12 gap-4 mx-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {products.map((product, i) => (
+        {products?.data?.map((product) => (
           <div
-            key={i}
+            key={product._id}
             className="card bg-base-100 shadow-sm animate-in fade-in zoom-in duration-300 transition-transform hover:scale-105 hover:shadow-lg"
           >
             <figure className="px-4 pt-4">
