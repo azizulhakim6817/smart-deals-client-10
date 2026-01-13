@@ -67,6 +67,20 @@ const MyProducts = () => {
       });
   };
 
+  //! handleDeleteProduct------------
+  const handleDeleteProduct = (_id) => {
+    fetch(`https://smart-deals-server-10.vercel.app/products-delete/${_id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        const reminingProducts = products.filter((itmes) => itmes._id !== _id);
+        setProducts(reminingProducts);
+        setLoading(false);
+      });
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen flex flex-col justify-center items-center gap-4 bg-base-200">
@@ -149,13 +163,18 @@ const MyProducts = () => {
                 >
                   View Details
                 </Link>
+                {/*Download ------------------------------*/}
                 <button
                   onClick={() => handleDownload(product)}
                   className="w-full btn btn-secondary"
                 >
                   Download
                 </button>
-                <button className="w-full btn text-white btn-error">
+                {/* handleDeleteProduct-------------- */}
+                <button
+                  onClick={() => handleDeleteProduct(product._id)}
+                  className="w-full btn text-white btn-error"
+                >
                   Delete
                 </button>
               </div>

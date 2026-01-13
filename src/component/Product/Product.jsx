@@ -1,7 +1,8 @@
-import { Link } from "react-router";
+import { Link, useParams } from "react-router";
 
 const Product = ({ product }) => {
-  //console.log("product", product);
+  console.log("product", product);
+  const { id } = useParams();
 
   return (
     <div className="card bg-base-100 shadow-sm animate-in fade-in zoom-in duration-300 transition-transform hover:scale-105 hover:shadow-lg">
@@ -19,7 +20,7 @@ const Product = ({ product }) => {
         </p>
         <div className="card-actions">
           <Link
-            to={`/product-details/${product?._id}`}
+            to={`/product-details/${product._id}`}
             className="w-full btn btn-outline btn-primary"
           >
             View Details
