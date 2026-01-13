@@ -61,7 +61,7 @@ const MyProducts = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setProducts(data.data);
+        setProducts(data);
         setLoadingProduct(false);
       });
   };
