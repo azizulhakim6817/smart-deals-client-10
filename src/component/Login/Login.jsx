@@ -1,4 +1,3 @@
-import { use } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import useAxios from "../../hooks/useAxios";
