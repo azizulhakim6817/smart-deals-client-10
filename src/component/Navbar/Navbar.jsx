@@ -1,6 +1,7 @@
 import { use, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../constext/AuthContext";
+import Logo from "../../assets/Logo";
 
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
@@ -117,7 +118,7 @@ const Navbar = () => {
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
+              />
             </svg>
           </div>
           <ul
@@ -127,9 +128,10 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">
-          Smart<span>Deals</span>
-        </a>
+        <Link className="flex gap-2 text-secondary text-3xl">
+          <Logo />
+          <span className=" font-bold hidden md:block ">FOODS</span>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>

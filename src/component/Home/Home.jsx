@@ -36,7 +36,7 @@ const Home = () => {
         </div>
       </div>
       {/* button-2 */}
-      <div className="flex justify-center items-center gap-2">
+      <div className="mx-4 flex flex-col md:flex-row justify-center items-center gap-2">
         <button className="btn text-white bg-gradient-to-r from-primary to-secondary">
           Watch All Products
         </button>
